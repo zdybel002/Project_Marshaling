@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet  id="create-customer-table"  author="r.zdybel">
+        <createTable  tableName="student">
+            <column  name="id"  type="int"  autoIncrement="true">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+
+            <column  name="first_name"  type="varchar(100)">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column  name="last_name"  type="varchar(100)">
+                <constraints  nullable="false"/>
+            </column>
+
+            <column  name="email"  type="varchar(100)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="major"  type="int">
+                <constraints  nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="load-student-data" author="r.zdybel">
+        <loadData separator=";" tableName="STUDENT" file="student.csv"
+                relativeToChangelogFile="true"/>
+
+    </changeSet>
+
+
+<!--    Account-->
+
+    <changeSet  id="create-account-table"  author="r.zdybel">
+        <createTable  tableName="subject">
+
+            <column  name="id"  type="int">
+                <constraints  nullable="false"/>
+            </column>
+
+            <column  name="subject_name"  type="varchar(100)">
+                <constraints  nullable="false"/>
+            </column>
+
+            <column  name="teacher"  type="varchar(100)">
+                <constraints  nullable="false"/>
+            </column>
+
+
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="load-account-data" author="r.zdybel">
+        <loadData file="subject.csv" separator=";" tableName="SUBJECT"
+                  relativeToChangelogFile="true"/>
+    </changeSet>
+
+<!--    TINY-->
+
+    <changeSet id="create-customer-account-table" author="r.zdybel">
+        <createTable  tableName="CUSTOMER_ACCOUNT">
+            <column  name="customer_id"  type="bigint">
+                <constraints  referencedTableName="CUSTOMER" referencedColumnNames="id"  nullable="false"
+                foreignKeyName="CustomerAccountCustomerFk"/>
+            </column>
+
+            <column  name="account_id"  type="bigint">
+                <constraints  referencedTableName="ACCOUNT" referencedColumnNames="id"  nullable="false"
+                              foreignKeyName="CustomerAccountAccountFk"/>
+            </column>
+
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="load-customer-account-relation-data" author="r.zdybel">
+
+        <loadData file = "customer-account.csv"  separator=";" tableName="CUSTOMER_ACCOUNT" relativeToChangelogFile="true"/>
+    </changeSet>
+</databaseChangeLog>
