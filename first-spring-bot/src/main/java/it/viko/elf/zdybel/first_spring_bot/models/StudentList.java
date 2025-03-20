@@ -1,4 +1,4 @@
-package it.viko.elf.zdybel.first_spring_bot.CustomerList;
+package it.viko.elf.zdybel.first_spring_bot.StudentList;
 
 import it.viko.elf.zdybel.first_spring_bot.models.Student;
 import jakarta.xml.bind.annotation.XmlElement;
