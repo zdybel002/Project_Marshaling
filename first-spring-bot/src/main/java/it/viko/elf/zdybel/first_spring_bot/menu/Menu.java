@@ -1,8 +1,7 @@
 package it.viko.elf.zdybel.first_spring_bot.menu;
 
-import it.viko.elf.zdybel.first_spring_bot.CustomerList.CustomerList;
-import it.viko.elf.zdybel.first_spring_bot.db.CustomerRepository;
-import it.viko.elf.zdybel.first_spring_bot.models.Customer;
+import it.viko.elf.zdybel.first_spring_bot.db.StudentRepository;
+import it.viko.elf.zdybel.first_spring_bot.models.Student;
 import it.viko.elf.zdybel.first_spring_bot.server.JavaClientSendingFile;
 import it.viko.elf.zdybel.first_spring_bot.service.XMLTransformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +10,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Scanner;
 
-import static it.viko.elf.zdybel.first_spring_bot.server.JavaClientSendingFile.clientSendingFile;
-
 @Component
 public class Menu {
-    private static List<Customer> customers;
+    private static List<Student> students;
     @Autowired
-    private CustomerRepository customerRepository;
+    private StudentRepository studentRepository;
 
     @Autowired
     private XMLTransformationService trantsformationService;
@@ -28,7 +25,7 @@ public class Menu {
         System.out.println("1 Create a pseudo code");
         System.out.println("2) Create XML and Save to the file");
         System.out.println("3) Send file");
-        System.out.println("| 6) + Quit %7s");
+        System.out.println("6) Quit ");
         return input.nextInt();
     }
 
@@ -39,14 +36,14 @@ public class Menu {
             userChoice = displayMenu(input);
             switch (userChoice) {
                 case 1:
-                    customers = customerRepository.findAll();
-                    for (Customer customer : customers) {
+                    students = studentRepository.findAll();
+                    for (Student customer : students) {
                         System.out.println(customer);
                     }
                     break;
                 case 2:
                     XMLTransformationService service = new XMLTransformationService();
-                    service.transformToXML(customers);  // Przekazujemy całą listę klientów
+                    service.transformToXML(students);  // Przekazujemy całą listę klientów
                     break;
 
                 case 3:

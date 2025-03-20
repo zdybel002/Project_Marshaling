@@ -1,8 +1,7 @@
 package it.viko.elf.zdybel.first_spring_bot;
 
-import it.viko.elf.zdybel.first_spring_bot.db.CustomerRepository;
+import it.viko.elf.zdybel.first_spring_bot.db.StudentRepository;
 import it.viko.elf.zdybel.first_spring_bot.menu.Menu;
-import it.viko.elf.zdybel.first_spring_bot.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -17,7 +16,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private StudentRepository studentRepository;
 
     @Autowired
     private Menu userMenu;

@@ -1,4 +1,5 @@
 id;first_name;last_name;email
-1;New student 1;Student 1;mr@gmail1
-2;New student 2;Student 2;mr@gmail2
-3;New student 3;Student 3;mr@gmail3
+1;John;Doe;john.doe@example.com
+2;Jane;Smith;jane.smith@example.com
+3;Mark;Johnson;mark.johnson@example.com
+

@@ -15,7 +15,7 @@ public class JavaClientSendingFile {
             dos = new DataOutputStream(socket.getOutputStream());
 
             System.out.println("Sending the File to the Server");
-            sendFile("C:\\Users\\zdybe\\IdeaProjects\\AnotherProject\\target\\SendingFile\\customers.xml");
+            sendFile("target/SendingFile/students.xml");
             dis.close();
             dos.close();
         } catch (ConnectException e) {

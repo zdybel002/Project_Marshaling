@@ -6,16 +6,16 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @XmlRootElement
-public class CustomerList {
+public class StudentList {
 
     private List<Student> students;
 
-    @XmlElement(name = "customer")
-    public List<Student> getCustomers() {
+    @XmlElement(name = "student")
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setCustomers(List<Student> customers) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 }

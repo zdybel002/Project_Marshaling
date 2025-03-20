@@ -6,80 +6,75 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet  id="create-customer-table"  author="r.zdybel">
-        <createTable  tableName="CUSTOMER">
-            <column  name="id"  type="int"  autoIncrement="true">
-                <constraints  primaryKey="true"  nullable="false"/>
+    <!-- Student Table Creation -->
+    <changeSet id="create-student-table" author="r.zdybel">
+        <createTable tableName="STUDENT">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column  name="first_name"  type="varchar(100)">
-                <constraints  nullable="true"/>
+            <column name="first_name" type="varchar(100)">
+                <constraints nullable="true"/>
             </column>
 
-            <column  name="last_name"  type="varchar(100)">
-                <constraints  nullable="false"/>
+            <column name="last_name" type="varchar(100)">
+                <constraints nullable="false"/>
             </column>
 
-            <column  name="email"  type="varchar(100)">
-                <constraints  nullable="false"/>
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
-
-    <changeSet id="load-customer-data" author="r.zdybel">
-        <loadData separator=";" tableName="CUSTOMER" file="customer.csv"
-                relativeToChangelogFile="true"/>
-
-    </changeSet>
-
-
-<!--    Account-->
-
-    <changeSet  id="create-account-table"  author="r.zdybel">
-        <createTable  tableName="ACCOUNT">
-            <column  name="id"  type="BIGINT"  autoIncrement="true">
-                <constraints   nullable="false" primaryKey="true"/>
-            </column>
-
-            <column  name="account_number"  type="bigint">
-                <constraints  nullable="false"/>
-            </column>
-
-            <column  name="amount"  type="numeric(10,2)">
-                <constraints  nullable="false"/>
-            </column>
-
-
-        </createTable>
-    </changeSet>
-
-
-    <changeSet id="load-account-data" author="r.zdybel">
-        <loadData file="account.csv" separator=";" tableName="ACCOUNT"
+    <!-- Load Student Data -->
+    <changeSet id="load-student-data" author="r.zdybel">
+        <loadData separator=";" tableName="STUDENT" file="student.csv"
                   relativeToChangelogFile="true"/>
     </changeSet>
 
-<!--    TINY-->
-
-    <changeSet id="create-customer-account-table" author="r.zdybel">
-        <createTable  tableName="CUSTOMER_ACCOUNT">
-            <column  name="customer_id"  type="bigint">
-                <constraints  referencedTableName="CUSTOMER" referencedColumnNames="id"  nullable="false"
-                foreignKeyName="CustomerAccountCustomerFk"/>
+    <!-- Course Table Creation -->
+    <changeSet id="create-course-table" author="r.zdybel">
+        <createTable tableName="COURSE">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
             </column>
 
-            <column  name="account_id"  type="bigint">
-                <constraints  referencedTableName="ACCOUNT" referencedColumnNames="id"  nullable="false"
-                              foreignKeyName="CustomerAccountAccountFk"/>
+            <column name="course_name" type="varchar(100)">
+                <constraints nullable="false"/>
             </column>
 
-
+            <column name="course_fee" type="numeric(10,2)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
-    <changeSet id="load-customer-account-relation-data" author="r.zdybel">
-
-        <loadData file = "customer-account.csv"  separator=";" tableName="CUSTOMER_ACCOUNT" relativeToChangelogFile="true"/>
+    <!-- Load Course Data -->
+    <changeSet id="load-course-data" author="r.zdybel">
+        <loadData separator=";" tableName="COURSE" file="course.csv"
+                  relativeToChangelogFile="true"/>
     </changeSet>
+
+    <!-- Student-Course Relationship Table Creation -->
+    <changeSet id="create-student-course-table" author="r.zdybel">
+        <createTable tableName="STUDENT_COURSE">
+            <column name="student_id" type="bigint">
+                <constraints referencedTableName="STUDENT" referencedColumnNames="id" nullable="false"
+                             foreignKeyName="StudentCourseStudentFk"/>
+            </column>
+
+            <column name="course_id" type="bigint">
+                <constraints referencedTableName="COURSE" referencedColumnNames="id" nullable="false"
+                             foreignKeyName="StudentCourseCourseFk"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Load Student-Course Relationship Data -->
+    <changeSet id="load-student-course-relation-data" author="r.zdybel">
+        <loadData file="student-course.csv" separator=";" tableName="STUDENT_COURSE"
+                  relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>
