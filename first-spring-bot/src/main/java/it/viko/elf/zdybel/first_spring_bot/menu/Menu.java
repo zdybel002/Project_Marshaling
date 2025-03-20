@@ -2,6 +2,7 @@ package it.viko.elf.zdybel.first_spring_bot.menu;
 
 import it.viko.elf.zdybel.first_spring_bot.db.StudentRepository;
 import it.viko.elf.zdybel.first_spring_bot.models.Student;
+import it.viko.elf.zdybel.first_spring_bot.models.StudentList;
 import it.viko.elf.zdybel.first_spring_bot.server.JavaClientSendingFile;
 import it.viko.elf.zdybel.first_spring_bot.service.XMLTransformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,14 @@ public class Menu {
                     }
                     break;
                 case 2:
-                    XMLTransformationService service = new XMLTransformationService();
-                    service.transformToXML(students);  // Przekazujemy całą listę klientów
+                    students = studentRepository.findAll();
+                    StudentList studentList = new StudentList();
+                    studentList.setStudents(students);
+
+                    XMLTransformationService.transformToXML(studentList);
+
+//                    XMLTransformationService service = new XMLTransformationService();
+//                    service.transformToXML(studentList);  // Przekazujemy całą listę klientów
                     break;
 
                 case 3:

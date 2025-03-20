@@ -1,4 +1,4 @@
-package org.example;
+package it.viko.elf.zdybel.first_spring_bot.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -11,7 +11,12 @@ public class JavaServerReceivingFile {
     private static DataOutputStream dos = null;
     private static DataInputStream dis = null;
 
+
     public static void main(String[] args) {
+        clientReceivingFile();q
+    }
+
+    public static void clientReceivingFile() {
         try (ServerSocket serverSocket = new ServerSocket(900)) {
             System.out.println("server is Starting in Port 900");
 
@@ -23,7 +28,7 @@ public class JavaServerReceivingFile {
             dos = new DataOutputStream(clientSocket.getOutputStream());
 
 
-            receiveFile("file.xml");
+            receiveFile("target/ReceiveFile/students.xml");
 
 
             dis.close();

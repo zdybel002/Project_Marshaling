@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <studentList>
-    <student>
+    <students>
         <firstName>John</firstName>
         <lastName>Doe</lastName>
         <email>john.doe@example.com</email>
@@ -16,8 +16,8 @@
                 <id>2</id>
             </course>
         </courses>
-    </student>
-    <student>
+    </students>
+    <students>
         <firstName>Jane</firstName>
         <lastName>Smith</lastName>
         <email>jane.smith@example.com</email>
@@ -33,8 +33,8 @@
                 <id>3</id>
             </course>
         </courses>
-    </student>
-    <student>
+    </students>
+    <students>
         <firstName>Mark</firstName>
         <lastName>Johnson</lastName>
         <email>mark.johnson@example.com</email>
@@ -45,5 +45,5 @@
                 <id>2</id>
             </course>
         </courses>
-    </student>
+    </students>
 </studentList>
