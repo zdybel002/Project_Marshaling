@@ -1,49 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<studentList>
-    <students>
-        <firstName>John</firstName>
-        <lastName>Doe</lastName>
+<students>
+    <student>
+        <courses>
+            <courseFee>500.00</courseFee>
+            <courseName>Mathematics</courseName>
+            <id>1</id>
+        </courses>
+        <courses>
+            <courseFee>450.00</courseFee>
+            <courseName>Physics</courseName>
+            <id>2</id>
+        </courses>
+        <courses>
+            <courseFee>300.00</courseFee>
+            <courseName>SQL Basics</courseName>
+            <id>4</id>
+        </courses>
         <email>john.doe@example.com</email>
+        <firstName>John</firstName>
+        <id>1</id>
+        <lastName>Doe</lastName>
+    </student>
+    <student>
         <courses>
-            <course>
-                <courseFee>500.0</courseFee>
-                <courseName>Mathematics</courseName>
-                <id>1</id>
-            </course>
-            <course>
-                <courseFee>450.0</courseFee>
-                <courseName>Physics</courseName>
-                <id>2</id>
-            </course>
+            <courseFee>500.00</courseFee>
+            <courseName>Mathematics</courseName>
+            <id>1</id>
         </courses>
-    </students>
-    <students>
-        <firstName>Jane</firstName>
-        <lastName>Smith</lastName>
+        <courses>
+            <courseFee>400.00</courseFee>
+            <courseName>Chemistry</courseName>
+            <id>3</id>
+        </courses>
         <email>jane.smith@example.com</email>
+        <firstName>Jane</firstName>
+        <id>2</id>
+        <lastName>Smith</lastName>
+    </student>
+    <student>
         <courses>
-            <course>
-                <courseFee>500.0</courseFee>
-                <courseName>Mathematics</courseName>
-                <id>1</id>
-            </course>
-            <course>
-                <courseFee>400.0</courseFee>
-                <courseName>Chemistry</courseName>
-                <id>3</id>
-            </course>
+            <courseFee>450.00</courseFee>
+            <courseName>Physics</courseName>
+            <id>2</id>
         </courses>
-    </students>
-    <students>
-        <firstName>Mark</firstName>
-        <lastName>Johnson</lastName>
         <email>mark.johnson@example.com</email>
-        <courses>
-            <course>
-                <courseFee>450.0</courseFee>
-                <courseName>Physics</courseName>
-                <id>2</id>
-            </course>
-        </courses>
-    </students>
-</studentList>
+        <firstName>Mark</firstName>
+        <id>3</id>
+        <lastName>Johnson</lastName>
+    </student>
+</students>

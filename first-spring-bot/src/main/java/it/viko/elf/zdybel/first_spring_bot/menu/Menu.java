@@ -3,7 +3,6 @@ package it.viko.elf.zdybel.first_spring_bot.menu;
 import it.viko.elf.zdybel.first_spring_bot.db.StudentRepository;
 import it.viko.elf.zdybel.first_spring_bot.models.Student;
 import it.viko.elf.zdybel.first_spring_bot.models.StudentList;
-import it.viko.elf.zdybel.first_spring_bot.server.JavaClientSendingFile;
 import it.viko.elf.zdybel.first_spring_bot.service.XMLTransformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -47,14 +46,11 @@ public class Menu {
                     StudentList studentList = new StudentList();
                     studentList.setStudents(students);
 
+//                    System.out.println(studentList);
                     XMLTransformationService.transformToXML(studentList);
 
 //                    XMLTransformationService service = new XMLTransformationService();
 //                    service.transformToXML(studentList);  // Przekazujemy całą listę klientów
-                    break;
-
-                case 3:
-                    JavaClientSendingFile.clientSendingFile();
                     break;
                 case 6:
                     System.out.println("Thank you goodbye!");
